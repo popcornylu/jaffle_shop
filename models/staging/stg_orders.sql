@@ -27,7 +27,7 @@ shift_date as (
         order_id,
         customer_id,
         (order_date + datediff('day', date '2018-04-09', CURRENT_DATE)::int) as order_date,
-        status        
+        status as order_status
 
     from renamed
 )
