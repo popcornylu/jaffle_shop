@@ -13,7 +13,8 @@ customers as (
 final as (
 
     select 
-        *
+        *,
+        count(*) as row_count
     from orders 
     left join customers using (customer_id)
 
