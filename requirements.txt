@@ -1,2 +1,4 @@
 dbt-duckdb
 piperider[duckdb]
+piperider[snowflake]
+dbt-snowflake
