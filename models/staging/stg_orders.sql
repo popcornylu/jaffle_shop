@@ -26,7 +26,11 @@ shift_date as (
     select
         order_id,
         customer_id,
+{% if target.name == 'databricks' %}
         (order_date + datediff(date '2018-04-09', CURRENT_DATE)::int) as order_date,
+{% else %}
+        (order_date + datediff('day', date '2018-04-09', CURRENT_DATE)::int) as order_date,
+{% endif %}
         status        
 
     from renamed

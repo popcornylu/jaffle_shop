@@ -2,8 +2,11 @@ jaffle_shop:
   target: dev
   outputs:
     dev:
+      type: duckdb
+      path: jaffle_shop.duckdb
+    databricks:
       type: databricks
-      schema: default
-      host: dbc-2aec941b-f559.cloud.databricks.com
-      http_path: /sql/1.0/warehouses/6bb1bada6e82ee18
+      schema: "{{ env_var('DATABRICKS_SCHEMA') | as_text }}"
+      host: "{{ env_var('DATABRICKS_HIST') | as_text }}"
+      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') | as_text }}"
       token: "{{ env_var('DATABRICKS_TOKEN') | as_text }}"
