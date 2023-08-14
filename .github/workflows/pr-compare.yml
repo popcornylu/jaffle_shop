@@ -24,4 +24,5 @@ jobs:
         cloud_api_token: ${{ secrets.PIPERIDER_CLOUD_TOKEN_ID }}
         cloud_project: ${{ secrets.PIPERIDER_API_PROJECT }}
         upload: true
-        share: true      
+        share: true
+        piperider_version: '0.32.0.dev1'
