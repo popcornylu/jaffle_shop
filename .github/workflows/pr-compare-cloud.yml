@@ -1,4 +1,4 @@
-name: PR Compare
+name: PR Compare Cloud
 on:
   pull_request:
     types: [opened, synchronize, reopened]
@@ -18,5 +18,11 @@ jobs:
 
     - name: PipeRider Compare
       uses: InfuseAI/piperider-compare-action@v1
+      env:
+        PIPERIDER_API_SERVICE: https://staging.cloud.piperider.io
       with:
+        cloud_api_token: ${{ secrets.PIPERIDER_CLOUD_TOKEN_ID }}
+        cloud_project: ${{ secrets.PIPERIDER_API_PROJECT }}
+        upload: true
+        share: true
         piperider_version: '0.32.0.dev2'
